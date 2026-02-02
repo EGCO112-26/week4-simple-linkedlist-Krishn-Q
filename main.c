@@ -25,7 +25,11 @@ int main(int argc, const char * argv[]) {
     //a.next -> next ->value=11
     //head -> next -> next -> value=11
     d.next=NULL; //NULLp
-
+/*  Exercise I
+    1. Add 1 more than at the end
+    2. Add value(11)
+    3. Make next become NULL
+ */
 
     printf("%d\n", head ->value ); //what value for 5
     printf("%d\n", head ->next->value ); //what value for 8
@@ -41,8 +45,13 @@ int main(int argc, const char * argv[]) {
     printf("%d\n", head ->next->next->value ); //what value for 7
     printf("%d\n", head ->next->next->next->value ); //what value for 8
 
-
-printf("insert in middle\n");
+/*  Exercise II
+        1. Add 1 more than at the begining!!!!
+        2. Add value (2)
+        
+*/
+   
+    printf("insert in middle\n");
     struct node f;
     f.value=7;
     f.next=&b;
@@ -55,45 +64,66 @@ printf("insert in middle\n");
 
 
 
-/*  Exercise I
-    1. Add 1 more than at the end
-    2. Add value(11)
-    3. Make next become NULL
- */
-    
-/*  Exercise II
-        1. Add 1 more than at the begining!!!!
-        2. Add value (2)
-        
-*/
     typedef struct node* NodePtr;
     NodePtr tmp=head; //add temp value to faciliate
+ //  Exercise III Use loop to print everything
+// What is missing???
         
-    /*  Exercise III Use loop to print everything
-        int i,n=5;
-        for(i=0;i<n;i++){
-            printf("%3d", tmp->value);
-          // What is missing???
-        }
-    */
     
-   /*  Exercise IV change to while loop!! (you can use NULL to help)
-       
-         while(){
+
+    printf("print using loop\n");
+    int i,n=5;
+        for(i=0;i<n;i++)
+        {
             printf("%3d", tmp->value);
-           // What is missing???
+            tmp=tmp->next;
         }
-    */
+        printf("\n");
+// Exercise IV change to while loop!! (you can use NULL to help)
+        tmp=head;
+        while(tmp){
+            printf("%3d", tmp->value);
+            tmp=tmp->next;
+        }
+        printf("\n");
+        
     
  /*  Exercise V Use malloc to create all nodes, instead of create a struct!!
          //use a loop to help
-          
-     */
+*/
+        printf("Create By Malloc\n");
+        NodePtr temp;
+        head= (NodePtr) malloc(sizeof(struct node));
+        temp=head;
+        n=5;
+        for(i=0;i<n;i++)
+    {
+        head ->value =7+i*2;
+        temp ->next=(NodePtr) malloc(sizeof(struct node));
+        temp=temp->next;
+    }
 
-    /*  Exercise VI Free all node !!
-         //use a loop to help
-          
-     */
+        temp->value =7+i*2;
+        temp->next= NULL;
+        
+        tmp=head;
+        while(tmp){
+            printf("%3d", tmp->value);
+            tmp=tmp->next;
+        }
+        printf("\n");
+        
+
+
+/*  Exercise VI Free all node !!
+//use a loop to help
+*/
     
-    return 0;
+    
+
+
+return 0;
 }
+
+
+
