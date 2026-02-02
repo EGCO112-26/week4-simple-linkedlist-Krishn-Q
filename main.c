@@ -16,9 +16,45 @@ int main(int argc, const char * argv[]) {
     a.next=&b;
     head=&a;
     b.value=head->value+3;
+    
+    struct node d;
+    b.next=&d;
+    d.value=11; 
+    //b.next->value=11
+    //(*&d).value
+    //a.next -> next ->value=11
+    //head -> next -> next -> value=11
+    d.next=NULL; //NULLp
+
 
     printf("%d\n", head ->value ); //what value for 5
     printf("%d\n", head ->next->value ); //what value for 8
+    printf("%d\n", head ->next->next->value ); //what value for 11
+
+    printf("insert in front\n");
+    struct node e;
+    e.value=2;
+    e.next=&a;
+    head = &e;
+    printf("%d\n", head ->value ); //what value for 2
+    printf("%d\n", head ->next->value ); //what value for 5
+    printf("%d\n", head ->next->next->value ); //what value for 7
+    printf("%d\n", head ->next->next->next->value ); //what value for 8
+
+
+printf("insert in middle\n");
+    struct node f;
+    f.value=7;
+    f.next=&b;
+    a.next=&f;
+    printf("%d\n", head ->value ); //what value for 2
+    printf("%d\n", head ->next->value ); //what value for 5
+    printf("%d\n", head ->next->next->value ); //what value for 7
+    printf("%d\n", head ->next->next->next->value ); //what value for 8
+    printf("%d\n", head ->next->next->next->next->value ); //what value for 11
+
+
+
 /*  Exercise I
     1. Add 1 more than at the end
     2. Add value(11)
